@@ -10,6 +10,10 @@ var corsOptions = {
 
 app.use(cors(corsOptions));
 
+// Synchronisation à la BDD
+const db = require("./app/models");
+db.sequelize.sync();
+
 // Analyse les reqêtes de type - application/json
 app.use(bodyParser.json());
 
